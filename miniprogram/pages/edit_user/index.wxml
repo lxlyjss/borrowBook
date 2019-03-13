@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="container">
+  <view style='padding: 20rpx 0;'>编辑用户</view>
+  <input placeholder='请输入姓名' value='{{name}}' bindinput='onNameChange'></input>
+  <input placeholder='请输入性别' value='{{gender}}' bindinput='onGenderChange'></input>
+  <input placeholder='请输入手机号' value='{{phone}}' bindinput='onPhoneChange'></input>
+  <button wx:if="{{!avatar}}" class='add_image' bindtap="chooseImage">添加图片</button>
+  <image class='avatar' wx:if="{{avatar}}" src='{{avatar}}'></image>
+  <text style='color: red' wx:if="{{avatar}}" bindtap="deleteImage">删除</text>
+  <button class='submit_btn' bindtap="submitData">提交</button>
+</view>

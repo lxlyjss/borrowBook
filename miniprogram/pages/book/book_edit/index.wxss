@@ -1,0 +1,50 @@
+.container{
+  padding: 30rpx;
+}
+.container input{
+  border: 1rpx solid #ccc;
+  margin-bottom: 10px;
+  padding: 10rpx;
+}
+.picker{
+  padding:10rpx;
+  border:1rpx solid #ccc;
+  margin-bottom: 20rpx;
+}
+.submit_btn{
+  width: 96%;
+  margin-top: 50rpx;
+  background-color: green;
+  color: #fff;
+}
+.add_image{
+  width: 240rpx;
+  margin-bottom: 20px;
+}
+.reupload{
+  width:240rpx;
+  float:right;
+  margin-right:100rpx;
+}
+.book_img{
+  width: 300rpx;
+  height: 400rpx;
+  margin-bottom: 10rpx;
+}
+.container .book_code{
+  width: 60%;
+  float: left;
+}
+.container .section{
+  width: 100%;
+}
+.section .title{
+  margin-bottom: 10rpx;
+}
+.scan_code{
+  width:140rpx;
+  height:74rpx;
+  line-height: 74rpx;
+  background-color: rgb(37, 129, 235);
+  color: #fff;
+}

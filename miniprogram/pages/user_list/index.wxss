@@ -1,0 +1,27 @@
+/* pages/list/index.wxss */
+.list_item{
+  display: flex;
+  flex-direction: row;
+}
+.list_item .item_section{
+  flex: 0 0 20%;
+  line-height: 100rpx;
+  text-align: center;
+}
+.avatar image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.item_section text{
+  font-size: 24rpx;
+}
+.add_btn{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+.edit view{
+  font-size: 24rpx;
+  line-height: 50rpx;
+}

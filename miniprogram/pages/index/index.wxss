@@ -1,0 +1,154 @@
+/* miniprogram/pages/book/book_list/index.wxss */
+.books_types{
+  width: 100%;
+  overflow: hidden;
+  height: 80rpx;
+  background-color: #fff;
+  line-height: 80rpx;
+  box-shadow: 0 0 40rpx 0 #ccc;
+}
+.books_types.isFixed{
+  position: fixed;
+  top: 0rpx;
+  left: 0;
+  z-index: 22;
+}
+.recommend_scroll_x_box {
+  height: 80rpx;
+  white-space: nowrap;
+  display: flex;
+  width:90%;
+  margin:0 auto;
+}
+.recommend_hot_box {
+  height: 60rpx;
+  margin-right: 60rpx;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60rpx;
+}
+.recommend_hot_box:last-of-type{
+  margin-right:0;
+}
+.recommend_hot_box.active text{
+  color: red;
+}
+.recommend_hot_box text{
+  font-size: 14px;
+  color: #999999;
+}
+.current-tag{
+  border-bottom: 3px solid #EA3F3F;
+}
+.current-tag text{
+  color: #000000;
+}
+.recommend_hot_image {
+  width: 230rpx;
+  height: 143rpx;
+}
+.types_btn{
+  width: 80rpx;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-left: 1px solid #ccc;
+  background-color: #fff;
+}
+.books_container{
+  margin-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+.books_item{
+  width: 330rpx;
+  margin-left: 30rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  overflow: hidden;
+  float: left;
+  box-shadow: 0px 0px 30rpx 0px #ddd;
+  margin-bottom: 15px;
+  position: relative;
+}
+.form-box{
+  z-index: 3;
+}
+.books_item .books_img{
+  width: 100%;
+  height: 430rpx;
+  box-shadow:0 0 10px 0 #ccc;
+}
+.books_title{
+  padding: 10rpx 20rpx;
+  height: 66rpx;
+  overflow: hidden;
+  line-height:36rpx;
+}
+.books_title .tuijian_btn{
+  font-size: 20rpx;
+  color: #fff;
+  background-color: #E94933;
+  padding: 2rpx 16rpx;
+  border-radius: 20rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.books_title text{
+  font-size: 14px;
+  color: #525252;
+  word-break:break-all;
+}
+.books_price{
+  padding: 10rpx 20rpx;
+  line-height: 40rpx;
+}
+.books_price .fr{
+  text-decoration: line-through;
+  margin-top: 4rpx;
+}
+.books_count{
+  padding: 28rpx 0;
+}
+.books_count text{
+  padding: 10rpx;
+  color: #fff;
+  background-color: #999;
+  border-radius: 50rpx;
+}
+.book_type{
+  padding: 0 20rpx;
+}
+.book_type text{
+  background-color: #ccc;
+  color: #fff;
+  font-size: 20rpx;
+  padding: 4rpx 10rpx;
+  border-radius: 4rpx;
+}
+.edit_container{
+  padding: 20rpx;
+}
+.edit_container .edit{
+  color: blue;
+}
+.edit_container .delete{
+  color: red;
+  margin-left: 30rpx;
+}
+.books_item{
+  padding-bottom: 20rpx;
+}
+.read_btn{
+  width: 90%;
+  background-color: rgba(43, 126, 250, 1);
+  color: #fff;
+}
+.btn_box{
+  margin-top: 20rpx;
+  height: 60rpx;
+}
+.btn_box .font16{
+  line-height: 60rpx;
+}

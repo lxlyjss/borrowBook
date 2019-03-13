@@ -1,0 +1,163 @@
+/**app.wxss**/
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+} 
+text{
+  font-size: 28rpx;
+}
+view{
+  font-size: 28rpx;
+}
+
+.clear::after{
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.bs{
+  box-sizing: border-box;
+}
+
+.fr{
+  float: right;
+}
+
+.fl {
+  float: left;
+}
+
+.pr {
+  position: relative;
+}
+
+.pa {
+  position: absolute;
+}
+
+.clear::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.bgfff {
+  background-color: #fff;
+}
+
+.bg000 {
+  background-color: #000;
+}
+
+.color000 {
+  color: #000;
+}
+
+.colorfff {
+  color: #fff;
+}
+
+.color333 {
+  color: #333;
+}
+.color777 {
+  color: #777;
+}
+.colorCCC{
+  color: #ccc;
+}
+.color999{
+  color: #999999;
+}
+.color666{
+  color: #666;
+}
+.colorLink{
+  color: #33A0FC;
+}
+.colorRed{
+  color: #EA3F3F;
+}
+.colorGray{
+  color: gray;
+}
+.tc {
+  text-align: center;
+}
+
+.tl {
+  text-align: left;
+}
+
+.tr {
+  text-align: right;
+}
+.font10{
+  font-size: 20rpx;
+}
+.font12 {
+  font-size: 24rpx;
+}
+.font13{
+  font-size: 26rpx;
+}
+.font14 {
+  font-size: 28rpx;
+}
+.font15{
+  font-size: 30rpx;
+}
+.font16 {
+  font-size: 32rpx;
+}
+.font18{
+  font-size: 36rpx;
+}
+.font20{
+  font-size: 40rpx;
+}
+.fontThin{
+  font-weight: 100;
+}
+.fontBlod {
+  font-weight: 900;
+}
+.fontBloder{
+  font-weight: 500;
+}
+
+.bgCover {
+  background-size: cover;
+  background-position: center;
+}
+.writePoint{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.writePoints{
+  display: box;
+  box-orient: vertical;
+  line-clamp: 2;
+  overflow: hidden;
+}
+.ps-re{
+  position: relative;
+}
+.ps-ab{
+  position: absolute;
+}
+button.share[open-type=share] {
+  background-color: #fff;
+  list-style: none;
+  padding: 0;
+  border:0;
+  outline:none;
+}
+button.share[open-type=share]::after{
+  outline: none;
+  border: 0;
+}

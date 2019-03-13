@@ -1,0 +1,37 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/book/book_list/index",
+    "pages/user_list/index",
+    "pages/edit_user/index",
+    "pages/book/book_edit/index",
+    "pages/user/user_center/index",
+    "pages/book/book_borrow/index",
+    "pages/user/user_borrow/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#1afa29",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/book.png",
+        "selectedIconPath": "/images/book_act.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/user/user_center/index",
+        "iconPath": "/images/user.png",
+        "selectedIconPath": "/images/user_act.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

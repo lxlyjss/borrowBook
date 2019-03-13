@@ -1,0 +1,20 @@
+.container{
+  width: 100%;
+}
+.container input{
+  border: 1rpx solid #ccc;
+  width: 90%;
+  margin-bottom: 10px;
+  padding: 10rpx;
+}
+.submit_btn{
+  width: 90%;
+}
+.add_image{
+  margin-bottom: 20px;
+}
+.avatar{
+  width: 200rpx;
+  height: 200rpx;
+  margin-bottom: 10rpx;
+}

@@ -1,0 +1,63 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"appid": "wx4fa2303747f5661f",
+	"projectname": "%E4%BA%91%E5%BC%80%E5%8F%911",
+	"libVersion": "2.6.0",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 3,
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "列表",
+					"pathName": "pages/list/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "用户中心",
+					"pathName": "pages/user/user_center/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我借的书",
+					"pathName": "pages/user/user_borrow/index",
+					"scene": null
+				}
+			]
+		}
+	}
+}

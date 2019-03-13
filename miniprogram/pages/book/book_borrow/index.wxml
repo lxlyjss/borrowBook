@@ -1,0 +1,24 @@
+<!--miniprogram/pages/book/book_borrow/index.wxml-->
+<view class='book_container clear'>
+  <view class='book_img tc fl'>
+    <image src='{{bookInfo.bookImg}}'></image>
+  </view>
+  <view class='title'>
+    <view>书名: {{bookInfo.bookName}}</view>
+    <view>类型: {{bookInfo.bookType}}</view>
+    <view>编号: {{bookInfo.bookNo}}</view>
+  </view>
+  <view class='btn'>
+    <button wx:if="{{bookInfo.status==0}}" type='primary' bindtap="confirmBorrow">我要借书</button>
+    <button wx:if="{{canReturn}}" type='primary' bindtap="confirmReturn">我要还书</button>
+  </view>
+</view>
+<view class='font18 fontBlod' style='margin-left: 30rpx;margin-top: 30rpx;'>借还记录: </view>
+<view class='borrow_item' wx:for="{{borrowList}}" wx:key="{{item._id}}">
+  <view style='margin-left: 50rpx'>
+    {{item.userInfo.name}}于{{item.createTime}}
+    <text class='font14' wx:if="{{item.type==1}}">借走</text>
+    <text class='font14' wx:if="{{item.type==2}}">归还</text>
+  </view>
+</view>
+<view wx:if="{{borrowList.length==0}}" class='tc color999'>暂无借还记录</view>

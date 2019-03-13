@@ -1,0 +1,29 @@
+/* miniprogram/pages/book/book_borrow/index.wxss */
+.book_container{
+  width: 100%;
+  background-color: #555;
+}
+.book_img{
+  width: 300rpx;
+  height: 400rpx;
+  margin: 20rpx;
+}
+.book_img image{
+  width: 100%;
+  height: 100%;
+}
+.title{
+  padding-top: 20rpx;
+  color: #fff;
+}
+.title view{
+  margin-bottom: 10rpx;
+}
+.btn button{
+  width: 320rpx;
+  margin-top: 40rpx;
+}
+.borrow_item{
+  color: #999;
+  margin-top: 10rpx;
+}

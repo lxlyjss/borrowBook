@@ -1,0 +1,9 @@
+<!--miniprogram/pages/user/user_center/index.wxml-->
+<view class='tc user_container'>
+  <image class='user_img' src='{{userInfo.avatar || "/images/user_img.png"}}'></image>
+  <view class='tc'>{{userInfo.name}}</view>
+  <button type="primary" open-type='getUserInfo' wx:if="{{!userInfo.openid}}" bindgetuserinfo="getUserInfo">登录</button>
+  <button style='margin-top: 30rpx;' wx:if="{{userInfo.openid}}" bindtap="toMyBorrowPage">我借的书</button>
+  <button bindtap="toBookListPage" style='margin-top: 30rpx;' wx:if="{{userInfo.role==1 || userInfo.role == 2}}">图书管理</button>
+  <button bindtap="toUserListPage" style='margin-top: 30rpx;' wx:if="{{userInfo.role==1}}">用户管理</button>
+</view>

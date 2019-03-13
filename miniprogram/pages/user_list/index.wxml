@@ -1,0 +1,43 @@
+<!--pages/list/index.wxml-->
+<view class='list_container'>
+  <view class='list_item'>
+    <view class='item_section avatar'>
+      <text>头像</text>
+    </view>
+    <view class='item_section name'>
+      <text>名字</text>
+    </view>
+    <view class='item_section gender'>
+      <text>性别</text>
+    </view>
+    <view class='item_section phone'>
+      <text>角色</text>
+    </view>
+    <view class='item_section phone'>
+      <text>操作</text>
+    </view>
+  </view>
+  <view class='list_item' wx:for="{{users}}" wx:key="{{item._id}}">
+    <view class='item_section avatar'>
+      <image src='{{item.avatar}}'></image>
+    </view>
+    <view class='item_section name'>
+      <text>{{item.name}}</text>
+    </view>
+    <view class='item_section gender'>
+      <text wx:if="{{item.gender==1}}">男</text>
+      <text wx:if="{{item.gender==2}}">女</text>
+    </view>
+    <view class='item_section phone'>
+      <text wx:if="{{item.role==1}}">管理员</text>
+      <text wx:if="{{item.role==2}}">读者</text>
+    </view>
+    <view class='item_section edit'>
+      <view style='color: blue' bindtap="toAddPage" id='{{item._id}}'>编辑</view>
+      <view style='color: red' bindtap="deleteUser" id='{{item._id}}'>删除</view>
+    </view>
+  </view>
+  <view class='add_btn'>
+    <button bindtap="toAddPage">添加</button>
+  </view>
+</view>

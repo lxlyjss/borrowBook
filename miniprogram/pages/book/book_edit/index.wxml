@@ -1,0 +1,28 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='section'>
+    <view class='title'>书名: </view>
+    <input placeholder='请输入书名' value='{{bookName}}' bindinput='onBookNameChange'></input>
+  </view>
+  <view class='section'>
+    <view class='title'>类型: </view>
+    <picker bindchange="onBookTypeChange" value="{{bookType}}" range="{{bookTypeList}}">
+    <view class="picker">
+      <block wx:if="{{!bookType}}">请选择</block>
+      <block wx:if="{{bookType}}">{{bookTypeList[bookType]}}</block>
+    </view>
+  </picker>
+  </view>
+  <view class='section'>
+    <view class='title'>编号: </view>
+    <input class='book_code' disabled placeholder='请输入图书编号' value='{{bookNo}}'></input>
+    <button bindtap='scanCode' class='scan_code'>扫码</button>
+  </view>
+  <view class='section'>
+    <view class='title'>书籍图片: </view>
+    <button wx:if="{{!bookImg}}" class='add_image' bindtap="chooseImage">添加图片</button>
+    <image class='book_img' wx:if="{{bookImg}}" src='{{bookImg}}'></image>
+    <button class='reupload' wx:if="{{bookImg}}" bindtap="chooseImage">重新上传</button>
+  </view>
+  <button class='submit_btn' bindtap="submitData">提交</button>
+</view>

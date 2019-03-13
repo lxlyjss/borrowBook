@@ -1,0 +1,22 @@
+/* miniprogram/pages/user/user_borrow/index.wxss */
+.borrow_container{
+  padding: 30rpx;
+}
+.borrow_list{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.book_img{
+  flex: 0 0 140rpx;
+}
+.book_img image{
+  width: 120rpx;
+  height: 160rpx;
+}
+.title{
+  flex: 0 0 550rpx;
+}

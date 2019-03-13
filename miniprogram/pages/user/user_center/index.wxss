@@ -1,0 +1,9 @@
+/* miniprogram/pages/user/user_center/index.wxss */
+.user_img{
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 100rpx;
+}
+.user_container{
+  padding: 30rpx;
+}

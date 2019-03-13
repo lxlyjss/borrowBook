@@ -1,0 +1,26 @@
+<!--miniprogram/pages/book/book_list/index.wxml-->
+<view class='books_types'>
+  <scroll-view class="recommend_scroll_x_box" scroll-x="{{true}}">
+    <view class="recommend_hot_box {{currentType==index?'active':''}}" data-item='{{index}}' bindtap='changeType' wx:for="{{typeList}}" wx:key="item">
+      <text>{{item}}</text>
+    </view>
+  </scroll-view>
+</view>
+<view class='books_container clear'>
+  <view class='books_item' wx:for="{{booksList}}" wx:key="{{item.id}}" bindtap="toBorrowPage" id='{{item._id}}'>
+    <image mode='aspectFill' class='books_img' src='{{item.bookImg}}'></image>
+    <view class='books_title'>
+      <text>{{item.bookName}}</text>
+    </view>
+    <view class='book_type'>
+      <text>{{item.bookType}}</text>
+    </view>
+    <view class='tc btn_box'>
+      <text class='colorLink font16' wx:if="{{item.status==0}}">可以租借</text>
+      <text class='colorCCC font16' wx:if="{{item.status==1}}">已被借走</text>
+    </view>
+  </view>
+  <view class='tc' wx:if="{{booksList.length==0}}">
+    <text class='color999 font16'>该类型暂无书籍</text>
+  </view>
+</view>
