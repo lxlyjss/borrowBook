@@ -12,8 +12,11 @@
     <view class='books_title'>
       <text>{{item.bookName}}</text>
     </view>
-    <view class='book_type'>
-      <text>{{item.bookType}}</text>
+    <view class='book_price color999'>
+      价格: <text>{{item.bookPrice}}</text>
+    </view>
+    <view class='book_type color999'>
+      类型: <text>{{item.bookType}}</text>
     </view>
     <view class='tc btn_box'>
       <!-- <text class='colorLink font16' wx:if="{{item.status==0}}">可以租借</text> -->

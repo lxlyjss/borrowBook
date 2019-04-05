@@ -3,19 +3,22 @@ const cloud = require('wx-server-sdk')
 
 cloud.init()
 const db = cloud.database()
-
+/*
+  status: 1: 已提交 2.借阅中 3.归还中 4.已归还
+ */
 // 云函数入口函数
 exports.main = async (event, context) => {
   return await db.collection('order').add({
     data: {
       realname: event.realname,
       phone: event.phone,
-      date: event.date,
-      time: event.time,
+      dateTime: event.date + " " + event.time,
+      day: event.day,
       address: event.address,
       remark: event.remark,
       bookId: event.bookId,
-      userId: event.userId
+      userId: event.userId,
+      status: 1
     }
   })
 }

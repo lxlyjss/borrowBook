@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -66,16 +66,17 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "借书确认",
 					"pathName": "pages/book/submit_borrow/index",
-					"query": "",
+					"query": "bookId=XGVFbHffS3SWZXtD",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "借阅列表",
 					"pathName": "pages/user/borrow_list/index",
+					"query": "",
 					"scene": null
 				}
 			]

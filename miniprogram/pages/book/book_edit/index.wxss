@@ -7,7 +7,7 @@
   padding: 10rpx;
 }
 .picker{
-  padding:10rpx;
+  padding:20rpx 10rpx;
   border:1rpx solid #ccc;
   margin-bottom: 20rpx;
 }

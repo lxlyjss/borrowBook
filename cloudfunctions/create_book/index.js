@@ -12,7 +12,7 @@ exports.main = async (event, context) => {
       data: {
         bookName: event.bookName,
         bookType: event.bookType,
-        bookNo: event.bookNo,
+        bookPrice: event.bookPrice,
         bookImg: event.bookImg,
         bookIntro: event.bookIntro
       }
@@ -22,7 +22,7 @@ exports.main = async (event, context) => {
       data: {
         bookName: event.bookName,
         bookType: event.bookType,
-        bookNo: event.bookNo,
+        bookPrice: event.bookPrice,
         bookImg: event.bookImg,
         bookIntro: event.bookIntro,
         status: 0

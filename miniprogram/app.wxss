@@ -81,6 +81,9 @@ view{
 .colorRed{
   color: #EA3F3F;
 }
+.colorGreen{
+  color: #0f0;
+}
 .colorGray{
   color: gray;
 }

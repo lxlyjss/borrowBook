@@ -117,7 +117,7 @@
   background-color: #999;
   border-radius: 50rpx;
 }
-.book_type{
+.book_type, .book_price{
   padding: 0 20rpx;
 }
 .book_type text{

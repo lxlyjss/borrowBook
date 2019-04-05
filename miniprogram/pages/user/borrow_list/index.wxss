@@ -2,12 +2,26 @@
 .container{
   padding: 30rpx;
 }
+.title_count{
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.delete_btn{
+  background-color: red;
+  color: #fff;
+  padding: 6rpx 18rpx;
+  border-radius: 10rpx;
+}
 .order_list{
   box-shadow: 0 0 20rpx 0 #ccc;
   padding: 30rpx;
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 20rpx;
+  position: relative;
+}
+.book_name{
+  margin-right: 40rpx;
 }
 .book_img{
   width: 170rpx;
@@ -30,4 +44,14 @@
   font-size: 24rpx;
   display: inline-block;
   margin-left: 20rpx;
+}
+.info_right{
+  margin-left: 190rpx;
+}
+.close_btn{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
 }

@@ -5,7 +5,7 @@ Page({
     bookId: "",
     bookName: "",
     bookType: "",
-    bookNo: "",
+    bookPrice: "", 
     bookImg: "",
     bookIntro: "",
     bookTypeList: [
@@ -42,7 +42,7 @@ Page({
         this.setData({ 
           bookName: book.bookName,
           bookType: String(this.data.bookTypeList.findIndex(item => item == book.bookType)),
-          bookNo: book.bookNo,
+          bookPrice: book.bookPrice,
           bookImg: book.bookImg,
           bookIntro: book.bookIntro
         })
@@ -62,6 +62,9 @@ Page({
   onBookTypeChange(e) {
     console.log(e.detail.value)
     this.setData({ bookType: e.detail.value })
+  },
+  onBookPriceChange (e) {
+    this.setData({ bookPrice: e.detail.value })
   },
   onBookIntroChange (e) {
     this.setData({ bookIntro: e.detail.value })
@@ -120,9 +123,9 @@ Page({
       })
       return
     }
-    if (!this.data.bookNo) {
+    if (!this.data.bookPrice) {
       wx.showToast({
-        title: '请扫描书编号',
+        title: '请输入书籍价格',
         icon: 'none'
       })
       return
@@ -138,7 +141,7 @@ Page({
       id: this.data.bookId,
       bookName: this.data.bookName,
       bookType: this.data.bookTypeList[this.data.bookType],
-      bookNo: this.data.bookNo,
+      bookPrice: this.data.bookPrice,
       bookImg: this.data.bookImg,
       bookIntro: this.data.bookIntro
     }
@@ -159,16 +162,6 @@ Page({
           title: '保存失败',
           icon: 'none'
         })
-      }
-    })
-  },
-  scanCode() {
-    wx.scanCode({
-      onlyFromCamera: true,
-      scanType: ['barCode'],
-      success: (e) => {
-        console.log(e.result)
-        this.setData({ bookNo: e.result })
       }
     })
   }

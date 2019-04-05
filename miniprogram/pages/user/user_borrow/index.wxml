@@ -1,19 +1,24 @@
-<!--miniprogram/pages/user/user_borrow/index.wxml-->
-<view class='borrow_container'>
-  <view class='font18'>我的借书记录:</view>
-  <view class='borrow_list' wx:for="{{borrowList}}" wx:key='{{item._id}}' bindtap="toBookBorrowPage" id='{{item.bookInfo._id}}'>
-    <view class='column book_img'>
-      <image src='{{item.bookInfo.bookImg}}'></image>
+<!--miniprogram/pages/user/borrow_list/index.wxml-->
+<view class='container'>
+  <view class='font14 title_count'>全部记录({{orderCount}})</view>
+  <view class='order_list' wx:for="{{orderList}}" wx:key="{{item._id}}">
+    <view class='fl book_img'>
+      <image mode='aspectFill' src='{{item.book.bookImg}}'></image>
     </view>
-    <view class='column title'>
-      <view class='font16'>书名: {{item.bookInfo.bookName}}</view>
-      <view>借书时间: {{item.borrowTime}}</view>
-      <view>归还时间: {{item.returnTime}}</view>
-      <view class='fr'>
-        <text class='color999 font16' wx:if="{{item.status==1}}">已归还</text>
-        <text class='colorRed font16' wx:if="{{item.status==0}}">去还书</text>
+    <view class='info_right'>
+      <view class='title'>书名: {{item.book.bookName}}</view>
+      <view class='title'>名字: {{item.realname}}</view>
+      <view class='title'>手机: {{item.phone}}</view>
+      <view class='title'>日期: {{item.date}} {{item.time}}</view>
+      <view class='title'>天数: {{item.day}}</view>
+      <view class='title'>地址: {{item.address}}</view>
+      <view class='title'>备注: {{item.remark}}</view>
+      <view class='btn_group'>
+        <text class='colorLink font14' wx:if="{{item.status == 1}}">已提交</text>
+        <text class='colorRed font14' wx:if="{{item.status == 2}}">借阅中</text>
+        <text class='colorLink font14' wx:if="{{item.status == 3}}">归还中</text>
+        <text class='colorGreen font14' wx:if="{{item.status == 4}}">已归还</text>
       </view>
-    </view>
+    </view> 
   </view>
-  <view class='tc font14 color999' wx:if="{{borrowList.length==0}}">暂无记录</view>
 </view>

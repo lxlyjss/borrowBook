@@ -26,6 +26,7 @@ exports.main = async (event, context) => {
     return order
   } else {
     let order = await db.collection('order').get()
+    let count = await db.collection('order').count()
     let list = []
     let orderList = order.data
     async function getTest () {
@@ -42,6 +43,9 @@ exports.main = async (event, context) => {
       }
     }
     await getTest()
-    return list
+    return {
+      list,
+      count: count.total
+    }
   }
 }

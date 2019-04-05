@@ -33,11 +33,8 @@
       <text wx:if="{{item.role==2}}">读者</text>
     </view>
     <view class='item_section edit'>
-      <view style='color: blue' bindtap="toAddPage" id='{{item._id}}'>编辑</view>
+      <!-- <view style='color: blue' bindtap="toAddPage" id='{{item._id}}'>编辑</view> -->
       <view style='color: red' bindtap="deleteUser" id='{{item._id}}'>删除</view>
     </view>
-  </view>
-  <view class='add_btn'>
-    <button bindtap="toAddPage">添加</button>
   </view>
 </view>

@@ -6,9 +6,12 @@ Page({
    */
   data: {
     bookId: '',
+    bookInfo: {},
+    bookName: '',
     realname: '',
     phone: '',
     date: '',
+    day: '',
     time: '',
     address: '',
     ramark: ''
@@ -20,6 +23,7 @@ Page({
   onLoad: function (options) {
     if (options.bookId) {
       this.data.bookId = options.bookId
+      this.getBook()
     } else {
       setTimeout(() => {
         wx.navigateBack({})
@@ -40,6 +44,9 @@ Page({
   onTimeChange(e) {
     console.log(e.detail.value)
     this.setData({ time: e.detail.value })
+  },
+  onDayChange (e) {
+    this.setData({ day: e.detail.value })
   },
   onAddressChange (e) {
     console.log(e.detail.value)
@@ -82,6 +89,13 @@ Page({
       })
       return
     }
+    if (!this.data.day) {
+      wx.showToast({
+        title: '请输入借阅的天数',
+        icon: 'none'
+      })
+      return
+    }
     if (!this.data.address) {
       wx.showToast({
         title: '请选择地点',
@@ -94,6 +108,7 @@ Page({
       phone: this.data.phone,
       date: this.data.date,
       time: this.data.time,
+      day: this.data.day,
       address: this.data.address,
       remark: this.data.remark,
       userId: getApp().globalData.userInfo._id,
@@ -118,6 +133,28 @@ Page({
           title: '提交预约失败',
           icon: 'none'
         })
+      }
+    })
+  },
+  getBook() {
+    wx.showLoading({
+      title: '加载中...',
+    })
+    // 调用云函数
+    wx.cloud.callFunction({
+      name: "get_book",
+      data: {
+        id: this.data.bookId
+      },
+      success: res => {
+        console.log(res)
+        this.setData({ bookInfo: res.result.data[0] })
+      },
+      fail: err => {
+        console.log(err)
+      },
+      complete: () => {
+        wx.hideLoading()
       }
     })
   },

@@ -1,6 +1,12 @@
 /* miniprogram/pages/book/submit_borrow/index.wxss */
-.container{
+.book_info{
+  background-color: #555;
+  width: 100%;
+}
+.input_container{
   padding: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
 }
 .container input{
   border: 1rpx solid #ccc;
@@ -60,4 +66,21 @@
   padding: 10rpx;
   width: 100%;
   box-sizing: border-box;
+}
+
+.book_img{
+  width: 210rpx;
+  height: 290rpx;
+  margin: 20rpx;
+}
+.book_img image{
+  width: 100%;
+  height: 100%;
+}
+.info_title{
+  padding-top: 20rpx;
+  color: #fff;
+}
+.info_title view{
+  margin-bottom: 10rpx;
 }
