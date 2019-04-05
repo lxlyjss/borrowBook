@@ -1,3 +1,4 @@
+/* miniprogram/pages/book/submit_borrow/index.wxss */
 .container{
   padding: 30rpx;
 }
@@ -7,7 +8,20 @@
   padding: 10rpx;
 }
 .picker{
-  padding:10rpx;
+  padding: 18rpx 10rpx;
+  border:1rpx solid #ccc;
+  margin-bottom: 20rpx;
+  float: left;
+  width: 50%;
+}
+.line{
+  margin: 20rpx;
+}
+.time{
+  width: 30%;
+}
+.address{
+  padding: 18rpx 10rpx;
   border:1rpx solid #ccc;
   margin-bottom: 20rpx;
 }
@@ -41,16 +55,9 @@
 .section .title{
   margin-bottom: 10rpx;
 }
-.scan_code{
-  width:140rpx;
-  height:74rpx;
-  line-height: 74rpx;
-  background-color: rgb(37, 129, 235);
-  color: #fff;
-}
-.book_intro{
-  width: 100%;
+.remark{
   border: 1rpx solid #ccc;
   padding: 10rpx;
+  width: 100%;
   box-sizing: border-box;
 }

@@ -7,7 +7,9 @@
     "pages/book/book_edit/index",
     "pages/user/user_center/index",
     "pages/book/book_borrow/index",
-    "pages/user/user_borrow/index"
+    "pages/user/user_borrow/index",
+    "pages/user/borrow_list/index",
+    "pages/book/submit_borrow/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

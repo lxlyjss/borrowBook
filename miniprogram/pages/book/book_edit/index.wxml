@@ -24,5 +24,9 @@
     <image class='book_img' wx:if="{{bookImg}}" src='{{bookImg}}'></image>
     <button class='reupload' wx:if="{{bookImg}}" bindtap="chooseImage">重新上传</button>
   </view>
+  <view class='section'>
+    <view class='title'>简介: </view>
+    <textarea class='book_intro' maxlength='5000' bindinput='onBookIntroChange' placeholder='请输入图书简介' value='{{bookIntro}}'></textarea>
+  </view>
   <button class='submit_btn' bindtap="submitData">提交</button>
 </view>

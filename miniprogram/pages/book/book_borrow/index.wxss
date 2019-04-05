@@ -27,3 +27,6 @@
   color: #999;
   margin-top: 10rpx;
 }
+.book_intro{
+  padding: 30rpx;
+}

@@ -97,6 +97,11 @@ Page({
       url: '/pages/user_list/index',
     })
   },
+  toBorrowListPage () {
+    wx.navigateTo({
+      url: '/pages/user/borrow_list/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,0 +1,42 @@
+<!--miniprogram/pages/book/submit_borrow/index.wxml-->
+<view class='container'>
+  <view>请填写以下信息</view>
+  <view class='section'>
+    <view class='title'>姓名: </view>
+    <input placeholder='请输入姓名' value='{{realname}}' bindinput='onRealnameChange'></input>
+  </view>
+  <view class='section'>
+    <view class='title'>手机: </view>
+    <input type='number' placeholder='请输入手机号码' value='{{phone}}' bindinput='onPhoneChange'></input>
+  </view>
+  <view class='section'>
+    <view class='title'>希望借阅的日期 / 时间: </view>
+    <picker bindchange="onDateChange" mode='date' value="{{date}}">
+      <view class="picker">
+        <block wx:if="{{!date}}"><text class='color999'>yyyy-MM-dd</text></block>
+        <block wx:if="{{date}}">{{date}}</block>
+      </view>
+    </picker>
+    <text class='fl line color999'>/</text>
+    <picker bindchange="onTimeChange" mode='time' value="{{time}}">
+      <view class="picker time">
+        <block wx:if="{{!time}}"><text class='color999'>hh:mm</text></block>
+        <block wx:if="{{time}}">{{time}}</block>
+      </view>
+    </picker>
+  </view>
+  <view class='section'>
+    <view class='title'>书的地点: </view>
+    <picker bindchange="onAddressChange" mode='region' value="{{address}}">
+      <view class="address">
+        <block wx:if="{{!address}}"><text class='color999'>请选择地区</text></block>
+        <block wx:if="{{address}}">{{address}}</block>
+      </view>
+    </picker>
+  </view>
+  <view class='section'>
+    <view class='title'>备注: </view>
+    <textarea class='remark' maxlength='1000' placeholder='备注' value='{{ramark}}' bindinput='onRemarkChange'></textarea>
+  </view>
+  <button class='submit_btn' bindtap="submitData">提交</button>
+</view>

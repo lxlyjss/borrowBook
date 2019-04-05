@@ -6,4 +6,5 @@
   <button style='margin-top: 30rpx;' wx:if="{{userInfo.openid}}" bindtap="toMyBorrowPage">我借的书</button>
   <button bindtap="toBookListPage" style='margin-top: 30rpx;' wx:if="{{userInfo.role==1 || userInfo.role == 2}}">图书管理</button>
   <button bindtap="toUserListPage" style='margin-top: 30rpx;' wx:if="{{userInfo.role==1}}">用户管理</button>
+  <button bindtap="toBorrowListPage" style='margin-top: 30rpx;' wx:if="{{userInfo.role==1}}">借阅管理</button>
 </view>

@@ -14,6 +14,7 @@ exports.main = async (event, context) => {
         bookType: event.bookType,
         bookNo: event.bookNo,
         bookImg: event.bookImg,
+        bookIntro: event.bookIntro
       }
     })
   } else {
@@ -23,6 +24,7 @@ exports.main = async (event, context) => {
         bookType: event.bookType,
         bookNo: event.bookNo,
         bookImg: event.bookImg,
+        bookIntro: event.bookIntro,
         status: 0
       }
     })

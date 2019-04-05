@@ -1,0 +1,18 @@
+<!--miniprogram/pages/user/borrow_list/index.wxml-->
+<view class='container'>
+  <view class='order_list' wx:for="{{orderList}}" wx:key="{{item._id}}">
+    <view class='fl book_img'>
+      <image mode='aspectFill' src='{{item.book.bookImg}}'></image>
+    </view>
+    <view class='title'>书名: {{item.book.bookName}}</view>
+    <view class='title'>名字: {{item.realname}}</view>
+    <view class='title'>手机: {{item.phone}}</view>
+    <view class='title'>日期: {{item.date}} {{item.time}}</view>
+    <view class='title'>地址: {{item.address}}</view>
+    <view class='title'>备注: {{item.remark}}</view>
+    <view class='btn_group'>
+      <button type='primary'>已安排</button>
+      <button type='primary'>已归还</button>
+    </view>
+  </view>
+</view>

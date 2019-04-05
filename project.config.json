@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -55,6 +55,27 @@
 					"id": -1,
 					"name": "我借的书",
 					"pathName": "pages/user/user_borrow/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "添加图书",
+					"pathName": "pages/book/book_edit/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "借书确认",
+					"pathName": "pages/book/submit_borrow/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "借阅列表",
+					"pathName": "pages/user/borrow_list/index",
 					"scene": null
 				}
 			]

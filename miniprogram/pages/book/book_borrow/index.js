@@ -59,36 +59,41 @@ Page({
       }
     })
   },
+  // confirmBorrow () {
+  //   console.log(getApp().globalData.userInfo)
+  //   if (!getApp().globalData.userInfo.openid) {
+  //     wx.showToast({
+  //       title: '请先登录, 谢谢!',
+  //       icon: 'none'
+  //     })
+  //     setTimeout(() => {
+  //       wx.switchTab({
+  //         url: '/pages/user/user_center/index'
+  //       })
+  //     }, 1500)
+  //     return
+  //   }
+  //   wx.showModal({
+  //     title: '温馨提示',
+  //     content: '请扫描书后底部的条形码, 点击确定开始扫描.',
+  //     success: (res) => {
+  //       if (res.confirm) {
+  //         wx.scanCode({
+  //           onlyFromCamera: true,
+  //           scanType: ['barCode'],
+  //           success: (e) => {
+  //             console.log(e.result)
+  //             this.setData({ scanBookNo: e.result })
+  //             this.checkCode(1)
+  //           }
+  //         })
+  //       }
+  //     }
+  //   })
+  // },
   confirmBorrow () {
-    console.log(getApp().globalData.userInfo)
-    if (!getApp().globalData.userInfo.openid) {
-      wx.showToast({
-        title: '请先登录, 谢谢!',
-        icon: 'none'
-      })
-      setTimeout(() => {
-        wx.switchTab({
-          url: '/pages/user/user_center/index'
-        })
-      }, 1500)
-      return
-    }
-    wx.showModal({
-      title: '温馨提示',
-      content: '请扫描书后底部的条形码, 点击确定开始扫描.',
-      success: (res) => {
-        if (res.confirm) {
-          wx.scanCode({
-            onlyFromCamera: true,
-            scanType: ['barCode'],
-            success: (e) => {
-              console.log(e.result)
-              this.setData({ scanBookNo: e.result })
-              this.checkCode(1)
-            }
-          })
-        }
-      }
+    wx.navigateTo({
+      url: '/pages/book/submit_borrow/index?bookId=' + this.data.bookId,
     })
   },
   confirmReturn () {

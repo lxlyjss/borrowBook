@@ -7,6 +7,7 @@ Page({
     bookType: "",
     bookNo: "",
     bookImg: "",
+    bookIntro: "",
     bookTypeList: [
       "python",
       "javascript",
@@ -43,6 +44,7 @@ Page({
           bookType: String(this.data.bookTypeList.findIndex(item => item == book.bookType)),
           bookNo: book.bookNo,
           bookImg: book.bookImg,
+          bookIntro: book.bookIntro
         })
         console.log(this.data.bookType)
       },
@@ -60,6 +62,9 @@ Page({
   onBookTypeChange(e) {
     console.log(e.detail.value)
     this.setData({ bookType: e.detail.value })
+  },
+  onBookIntroChange (e) {
+    this.setData({ bookIntro: e.detail.value })
   },
   // 上传图片
   chooseImage() {
@@ -100,7 +105,7 @@ Page({
     })
   },
   submitData() {
-    console.log(this.data.bookName, this.data.bookType, this.data.bookNo, this.data.bookImg)
+    console.log(this.data.bookName, this.data.bookType, this.data.bookNo, this.data.bookImg, this.data.bookIntro)
     if (!this.data.bookName) {
       wx.showToast({
         title: '请输入书名',
@@ -134,7 +139,8 @@ Page({
       bookName: this.data.bookName,
       bookType: this.data.bookTypeList[this.data.bookType],
       bookNo: this.data.bookNo,
-      bookImg: this.data.bookImg
+      bookImg: this.data.bookImg,
+      bookIntro: this.data.bookIntro
     }
     // 调用云函数
     wx.cloud.callFunction({
