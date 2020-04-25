@@ -6,10 +6,24 @@
   margin-bottom: 10px;
   padding: 10rpx;
 }
+.picker-container{
+  display: inline-block;
+}
 .picker{
   padding:20rpx 10rpx;
   border:1rpx solid #ccc;
   margin-bottom: 20rpx;
+  width: 400rpx;
+  
+}
+.type-edit{
+  width: 100px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 20rpx;
+  height: 66rpx;
+  margin-top: -8rpx;
+  line-height: 66rpx;
 }
 .submit_btn{
   width: 96%;
@@ -30,6 +44,7 @@
   width: 300rpx;
   height: 400rpx;
   margin-bottom: 10rpx;
+  background: #ccc;
 }
 .container .book_code{
   width: 60%;

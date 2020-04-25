@@ -5,13 +5,29 @@
 		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
+		"preloadBackgroundData": false,
 		"minified": true,
 		"newFeature": true,
-		"autoAudits": false
+		"coverView": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"enhance": true
 	},
-	"appid": "wx4fa2303747f5661f",
+	"appid": "wx391394b9acc16f07",
 	"projectname": "%E4%BA%91%E5%BC%80%E5%8F%911",
 	"libVersion": "2.6.0",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -26,6 +42,10 @@
 			"list": []
 		},
 		"game": {
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
 			"list": []
 		},
 		"miniprogram": {
@@ -77,6 +97,12 @@
 					"name": "借阅列表",
 					"pathName": "pages/user/borrow_list/index",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "类型编辑",
+					"pathName": "pages/book/type_edit/index",
 					"scene": null
 				}
 			]

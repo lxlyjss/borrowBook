@@ -6,14 +6,7 @@ Page({
    */
   data: {
     currentType: 0,
-    typeList: [
-      '全部',
-      'python',
-      'javascript',
-      'php',
-      '运维',
-      '其他'
-    ],
+    typeList: ['全部'],
     booksList: []
   },
   changeType(e) {
@@ -22,10 +15,30 @@ Page({
     console.log(this.data.currentType)
     this.getBookList()
   },
+  getTypeList () {
+    wx.cloud.callFunction({
+      name: "get_type_list",
+      success: res => {
+        console.log(res)
+        let typeList = res.result.data.map(item => {
+          return item.title
+        })
+        this.setData({ typeList: this.data.typeList.concat(typeList) })
+        console.log(this.data.bookTypeList)
+      },
+      fail: err => {
+        console.log(err)
+      },
+      complete: () => {
+        wx.hideLoading()
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  async onLoad (options) {
+    await this.getTypeList()
     this.getBookList()
   },
   getBookList() {

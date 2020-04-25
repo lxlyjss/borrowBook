@@ -6,14 +6,7 @@ Page({
    */
   data: {
     currentType: 0,
-    typeList: [
-      '全部',
-      'python',
-      'javascript',
-      'php',
-      '运维',
-      '其他'
-    ],
+    typeList: [],
     booksList: [],
     userInfo: {}
   },
@@ -26,6 +19,25 @@ Page({
     if (getApp().globalData.userInfo._id) {
       this.setData({ userInfo: getApp().globalData.userInfo })
     }
+  },
+  getTypeList () {
+    wx.cloud.callFunction({
+      name: "get_type_list",
+      success: res => {
+        console.log(res)
+        let typeList = res.result.data.map(item => {
+          return item.title
+        })
+        this.setData({ typeList: this.data.typeList.concat(typeList) })
+        console.log(this.data.bookTypeList)
+      },
+      fail: err => {
+        console.log(err)
+      },
+      complete: () => {
+        wx.hideLoading()
+      }
+    })
   },
   getBookList() {
     wx.showLoading({

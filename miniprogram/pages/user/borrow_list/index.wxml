@@ -1,7 +1,7 @@
 <!--miniprogram/pages/user/borrow_list/index.wxml-->
 <view class='container'>
   <view class='font14 title_count'>全部记录({{orderCount}})<text class='delete_btn fr font14'>批量删除</text></view>
-  <view class='order_list' wx:for="{{orderList}}" wx:key="{{item._id}}">
+  <view class='order_list' wx:for="{{orderList}}" wx:key="item._id">
     <view class='fl book_img'>
       <image mode='aspectFill' src='{{item.book.bookImg}}'></image>
       <view class='tc'>

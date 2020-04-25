@@ -10,6 +10,7 @@ Page({
     bookInfo: {},
     scanBookNo: "",
     borrowList: [],
+    userInfo: {},
     canReturn: false,        //是否可以归还
   },
 
@@ -22,8 +23,19 @@ Page({
       this.getBook()
       this.getBorrowList()
     }
+    let userInfo = wx.getStorageSync('userInfo');
+    console.log(userInfo)
+    if (userInfo) {
+      this.setData({
+        userInfo: JSON.parse(userInfo)
+      })
+    }
   },
-
+  goLogin () {
+    wx.switchTab({
+      url: '/pages/user/user_center/index',
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -65,69 +77,34 @@ Page({
     })
   },
   confirmReturn () {
-    wx.showModal({
-      title: '温馨提示',
-      content: '请扫描书后底部的条形码, 点击确定开始扫描.',
-      success: (res) => {
-        if (res.confirm) {
-          wx.scanCode({
-            onlyFromCamera: true,
-            scanType: ['barCode'],
-            success: (e) => {
-              console.log(e.result)
-              this.setData({ scanBookNo: e.result })
-              this.checkCode(2)
-            }
-          })
-        }
-      }
-    })
+    this.changeOrderStatus(this.data.borrowList[0]._id, 3)
   },
-  checkCode (type) {
+  changeOrderStatus (id, status) {
+    console.log(id, status)
     wx.showLoading({
-      title: '请稍候...',
+      title: '加载中...',
     })
-    if (this.data.bookInfo.bookNo != this.data.scanBookNo) {
-      wx.showToast({
-        title: '抱歉, 扫描的条形码编号与本书编号不一致, 请重新扫描',
-        duration: 3000,
-        icon: 'none'
-      })
-    } else {
-      let params = {
-        bookId: this.data.bookId,
-        userId: getApp().globalData.userInfo._id,
-        type: type
+    // 调用云函数
+    wx.cloud.callFunction({
+      name: "change_order_status",
+      data: {
+        orderId: id,
+        status
+      },
+      success: res => {
+        console.log(res)
+        wx.showToast({
+          title: '提交成功',
+        })
+        this.getBorrowList()
+      },
+      fail: err => {
+        console.log(err)
+      },
+      complete: () => {
+        wx.hideLoading()
       }
-      wx.cloud.callFunction({
-        name: "create_borrow",
-        data: params,
-        success: res => {
-          console.log(res)
-          if (type == 1) {
-            wx.showModal({
-              title: '温馨提示',
-              content: '恭喜你借书成功, 记得及时归还哦~',
-              showCancel: false
-            })
-          } else {
-            wx.showModal({
-              title: '温馨提示',
-              content: '恭喜你还书成功, 继续保持良好的借还习惯哦~',
-              showCancel: false
-            })
-          }
-          this.getBook()
-          this.getBorrowList()
-        },
-        fail: err => {
-          console.log(err)
-        },
-        complete: () => {
-          wx.hideLoading()
-        }
-      })
-    }
+    })
   },
   getBorrowList () {
     wx.showLoading({
@@ -135,16 +112,16 @@ Page({
     })
     // 调用云函数
     wx.cloud.callFunction({
-      name: "get_borrow",
+      name: "get_order",
       data: {
         bookId: this.data.bookId
       },
       success: res => {
         console.log(res)
-        res.result.data.forEach(item => {
+        res.result.list.forEach(item => {
           item.createTime = formatDate(item.createTime, 'yyyy年MM月dd日 hh:mm:ss')
         })
-        this.setData({ borrowList: res.result.data })
+        this.setData({ borrowList: res.result.list })
         this.setCanReturn()
       },
       fail: err => {
@@ -157,9 +134,9 @@ Page({
   },
   setCanReturn () {
     if (this.data.borrowList.length == 0) return
-    let userInfo = this.data.borrowList[0].userInfo
-    let type = this.data.borrowList[0].type
-    if (userInfo._id == getApp().globalData.userInfo._id && type == 1) {
+    let userInfo = this.data.borrowList[0].user
+    let type = this.data.borrowList[0].status
+    if (userInfo._id == getApp().globalData.userInfo._id && type == 2) {
       this.setData({ canReturn: true })
     } else {
       this.setData({ canReturn: false })

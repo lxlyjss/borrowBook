@@ -15,5 +15,5 @@ exports.main = async (event, context) => {
       status: event.status
     }
   })
-
+  return order
 }

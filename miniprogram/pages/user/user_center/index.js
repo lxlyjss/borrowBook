@@ -43,6 +43,7 @@ Page({
               title: '登录成功',
             })
             this.data.userInfo._id = res.result.data.id
+            console.log(this.data.userInfo)
             this.getUserData()
           },
           fail: err => {
@@ -69,7 +70,7 @@ Page({
         console.log(res)
         console.log(this.data.userInfo._id)
         this.setData({
-          userInfo: res.result.data[0]
+          userInfo: res.result.data
         })
         getApp().globalData.userInfo = this.data.userInfo
         wx.setStorageSync('userInfo', JSON.stringify(this.data.userInfo))
@@ -101,6 +102,10 @@ Page({
     wx.navigateTo({
       url: '/pages/user/borrow_list/index',
     })
+  },
+  logout () {
+    this.setData({ userInfo: {} })
+    wx.setStorageSync('userInfo', JSON.stringify({}))
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

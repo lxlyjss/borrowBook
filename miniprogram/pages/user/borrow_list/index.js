@@ -90,7 +90,7 @@ Page({
     wx.cloud.callFunction({
       name: "change_order_status",
       data: {
-        id,
+        orderId: id,
         status
       },
       success: res => {

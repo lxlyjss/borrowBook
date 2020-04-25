@@ -96,13 +96,13 @@ Page({
       })
       return
     }
-    if (!this.data.address) {
-      wx.showToast({
-        title: '请选择地点',
-        icon: 'none'
-      })
-      return
-    }
+    // if (!this.data.address) {
+    //   wx.showToast({
+    //     title: '请选择地点',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
     const params = {
       realname: this.data.realname,
       phone: this.data.phone,

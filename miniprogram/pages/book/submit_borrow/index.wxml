@@ -40,7 +40,7 @@
       <view class='title'>时长/天: </view>
       <input type='number' placeholder='请输入借阅的天数' value='{{day}}' bindinput='onDayChange'></input>
     </view>
-    <view class='section'>
+    <!-- <view class='section'>
       <view class='title'>书的地点: </view>
       <picker bindchange="onAddressChange" mode='region' value="{{address}}">
         <view class="address">
@@ -48,7 +48,7 @@
           <block wx:if="{{address}}">{{address}}</block>
         </view>
       </picker>
-    </view>
+    </view> -->
     <view class='section'>
       <view class='title'>备注: </view>
       <textarea class='remark' maxlength='1000' placeholder='备注' value='{{ramark}}' bindinput='onRemarkChange'></textarea>

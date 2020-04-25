@@ -9,7 +9,8 @@
     "pages/book/book_borrow/index",
     "pages/user/user_borrow/index",
     "pages/user/borrow_list/index",
-    "pages/book/submit_borrow/index"
+    "pages/book/submit_borrow/index",
+    "pages/book/type_edit/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -35,5 +36,6 @@
         "text": "我的"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

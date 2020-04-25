@@ -1,0 +1,20 @@
+<!--miniprogram/pages/book/type_edit/index.wxml-->
+<view class="type-container">
+  <view class="title">分类列表</view>
+  <view class="type-list" wx:for="{{ typeList }}" wx:key="index">
+    <view class="type-title">{{ item.title }}</view>
+    <view class="edit-btn">
+      <button type="primary" size="mini" style="margin-right: 10rpx;" bindtap="openShow" data-title="{{ item.title }}" id="{{ item._id }}">编辑</button>
+    </view>
+  </view>
+  <view class="no-list" wx:if="{{ typeList.length === 0 }}">暂无分类</view>
+  <button class="add-type" type="primary" bindtap="openShow">添加分类</button>
+</view>
+<view class="dialog" wx:if="{{ show }}">
+  <view class="dialog-content">
+    <view class="title">请填写分类</view>
+    <input value="{{ title }}" bindinput="titleInput" class="input-box" type="text"></input>
+    <button class="confirm-btn" type="primary" size="mini" bindtap="saveType">确认</button>
+    <button class="cancel-btn" size="mini" bindtap="hideShow">取消</button>
+  </view>
+</view>

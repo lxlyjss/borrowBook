@@ -8,16 +8,11 @@ Page({
     bookPrice: "", 
     bookImg: "",
     bookIntro: "",
-    bookTypeList: [
-      "python",
-      "javascript",
-      'php',
-      '运维',
-      '其他'
-    ]
+    bookTypeList: []
   },
 
   onLoad(options) {
+    this.getTypeList()
     if (options.id) {
       this.data.bookId = options.id
       this.getBook()
@@ -25,6 +20,33 @@ Page({
         title: '编辑图书',
       })
     }
+  },
+  onShow() {
+    this.getTypeList()
+  },
+  toTypeEditPage() {
+    wx.navigateTo({
+      url: "/pages/book/type_edit/index"
+    })
+  },
+  getTypeList () {
+    wx.cloud.callFunction({
+      name: "get_type_list",
+      success: res => {
+        console.log(res)
+        let typeList = res.result.data.map(item => {
+          return item.title
+        })
+        this.setData({ bookTypeList: typeList })
+        console.log(this.data.bookTypeList)
+      },
+      fail: err => {
+        console.log(err)
+      },
+      complete: () => {
+        wx.hideLoading()
+      }
+    })
   },
   getBook () {
     wx.showLoading({

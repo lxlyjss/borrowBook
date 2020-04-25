@@ -6,13 +6,15 @@
   </view>
   <view class='section'>
     <view class='title'>类型: </view>
-    <picker bindchange="onBookTypeChange" value="{{bookType}}" range="{{bookTypeList}}">
-    <view class="picker color666">
-      <block wx:if="{{!bookType}}">请选择</block>
-      <block wx:if="{{bookType}}">{{bookTypeList[bookType]}}</block>
-    </view>
-  </picker>
+    <picker class="picker-container" bindchange="onBookTypeChange" value="{{bookType}}" range="{{bookTypeList}}">
+      <view class="picker color666">
+        <block wx:if="{{!bookType}}">请选择</block>
+        <block wx:if="{{bookType}}">{{bookTypeList[bookType]}}</block>
+      </view>
+    </picker>
+    <button size="mini" class="type-edit" bindtap="toTypeEditPage">类型编辑</button>
   </view>
+  
   <view class='section'>
     <view class='title'>价格: </view>
     <input placeholder='请输入图书价格' bindinput='onBookPriceChange' value='{{bookPrice}}'></input>

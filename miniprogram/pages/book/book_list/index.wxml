@@ -7,7 +7,7 @@
   </scroll-view>
 </view>
 <view class='books_container clear'>
-  <view class='books_item' wx:for="{{booksList}}" wx:key="{{item.id}}">
+  <view class='books_item' wx:for="{{booksList}}" wx:key="item.id">
     <image mode='aspectFill' class='books_img' src='{{item.bookImg}}'></image>
     <view class='books_title'>
       <text>{{item.bookName}}</text>

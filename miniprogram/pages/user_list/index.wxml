@@ -17,7 +17,7 @@
       <text>操作</text>
     </view>
   </view>
-  <view class='list_item' wx:for="{{users}}" wx:key="{{item._id}}">
+  <view class='list_item' wx:for="{{users}}" wx:key="item._id">
     <view class='item_section avatar'>
       <image src='{{item.avatar}}'></image>
     </view>
