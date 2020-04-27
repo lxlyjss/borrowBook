@@ -8,11 +8,18 @@ const db = cloud.database()
  */
 // 云函数入口函数
 exports.main = async (event, context) => {
+  await db.collection('books').where({
+    _id: event.bookId
+  }).update({
+    data: {
+      status: 0
+    }
+  })
   let order = await db.collection('order').where({
     _id: event.orderId
   }).update({
     data: {
-      status: event.status,
+      status: 4,
       returnTime: new Date().getTime()
     }
   })

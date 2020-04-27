@@ -68,6 +68,7 @@ Page({
           userInfo
         })
         wx.setStorageSync('userInfo', JSON.stringify(userInfo));
+        getApp().globalData.userInfo = userInfo;
         wx.navigateBack({
           complete: (res) => {}
         })

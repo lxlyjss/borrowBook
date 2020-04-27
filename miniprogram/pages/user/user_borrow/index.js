@@ -20,9 +20,13 @@ Page({
     wx.showLoading({
       title: '加载中...',
     })
+
     // 调用云函数
     wx.cloud.callFunction({
       name: "get_order",
+      data: {
+        userId: getApp().globalData.userInfo._id
+      },
       success: res => {
         console.log(res)
         res.result.list.forEach(item => {

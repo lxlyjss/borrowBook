@@ -123,6 +123,12 @@ Page({
       data: params,
       success: res => {
         console.log(res)
+        if (res.result.result == 0) {
+          return wx.showToast({
+            title: res.result.msg || '提交失败',
+            icon: 'none'
+          })
+        }
         setTimeout(() => {
           wx.showToast({
             title: '借书成功',

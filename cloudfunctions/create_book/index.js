@@ -3,6 +3,8 @@ const cloud = require('wx-server-sdk')
 
 cloud.init()
 const db = cloud.database()
+
+// status 0: 无借阅，1：借阅中
 // 云函数入口函数
 exports.main = async (event, context) => {
   if (event.id) {

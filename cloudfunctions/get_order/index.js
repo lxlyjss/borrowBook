@@ -25,8 +25,18 @@ exports.main = async (event, context) => {
     order.user = user
     return order
   } else {
-    let order = await db.collection('order').orderBy("dateTime", "desc").get()
-    let count = await db.collection('order').count()
+    let order, count
+    if (event.userId) {
+      order = await db.collection('order').where({
+        userId: event.userId
+      }).orderBy("dateTime", "desc").get()
+      count = await db.collection('order').where({
+        userId: event.userId
+      }).count()
+    } else {
+      order = await db.collection('order').orderBy("dateTime", "desc").get()
+      count = await db.collection('order').count()
+    }
     let list = []
     let orderList = order.data
     async function getTest () {

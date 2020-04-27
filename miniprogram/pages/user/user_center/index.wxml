@@ -8,5 +8,5 @@
   <button bindtap="toBookListPage" style='margin-top: 30rpx;' wx:if="{{userInfo.role==1}}">图书管理</button>
   <button bindtap="toUserListPage" style='margin-top: 30rpx;' wx:if="{{userInfo.role==1}}">用户管理</button>
   <!-- <button bindtap="toBorrowListPage" style='margin-top: 30rpx;' wx:if="{{userInfo.role==1}}">借阅管理</button> -->
-  <button bindtap="logout" wx:if="{{ userInfo.openid }}" style='margin-top: 30rpx;'>退出登录</button>
+  <button bindtap="logout" type="warn" wx:if="{{ userInfo.openid }}" style='margin-top: 30rpx;'>退出登录</button>
 </view>

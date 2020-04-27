@@ -1,4 +1,5 @@
 <!--miniprogram/pages/book/book_borrow/index.wxml-->
+<official-account></official-account>
 <view class='book_container clear'>
   <view class='book_img tc fl'>
     <image src='{{bookInfo.bookImg}}'></image>
@@ -10,8 +11,8 @@
   </view>
   <view class='btn' wx:if="{{userInfo.openid}}">
     <view class="btn-info" wx:if="{{btnInfo}}">{{btnInfo}}</view>
-    <button wx:if="{{canBorrow}}" type='primary' bindtap="confirmBorrow">我要借书</button>
-    <button wx:if="{{canReturn}}" type='primary' bindtap="confirmReturn">我要还书</button>
+    <button wx:if="{{canBorrow}}" type='primary' bindtap="confirmBorrow">我要借</button>
+    <button wx:if="{{canReturn}}" type='primary' bindtap="confirmReturn">我要还</button>
     <!-- <button type='primary' bindtap="confirmBorrow">我要预约</button> -->
   </view>
   <view class="btn" wx:else>
@@ -21,7 +22,7 @@
 <view class='font18 fontBlod' style='margin-left: 30rpx;margin-top: 30rpx;'>简介: </view>
 <!-- <view wx:if="{{borrowList.length==0}}" class='tc color999'>暂无借还记录</view> -->
 <view wx:if="{{bookInfo.bookIntro}}" class='book_intro color333'><text>{{bookInfo.bookIntro}}</text></view>
-<view wx:if="{{!bookInfo.bookIntro}}" class='tc color999'>暂无图书简介</view>
+<view wx:if="{{!bookInfo.bookIntro}}" class='tc color999'>暂无简介</view>
 <view class='font18 fontBlod' style='margin-left: 30rpx;margin-top: 30rpx;'>借阅记录: </view>
 <view class='borrow_item' wx:for="{{borrowList}}" wx:key="index">
   <view class="connect-btn" size="mini" bindtap="connect" data-phone="{{item.phone}}">联系TA</view>
@@ -36,4 +37,4 @@
     <text class='font14' >归还</text>
   </view>
 </view>
-<view wx:if="{{borrowCount == 0}}" class="no-list">暂无借阅记录</view>
+<view wx:if="{{borrowCount == 0}}" class="no-list">暂无借还记录</view>

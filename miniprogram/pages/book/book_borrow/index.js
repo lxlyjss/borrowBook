@@ -91,10 +91,9 @@ Page({
     })
   },
   confirmReturn () {
-    this.changeOrderStatus(this.data.borrowList[0]._id, 4)
+    this.changeOrderStatus(this.data.borrowList[0]._id)
   },
-  changeOrderStatus (id, status) {
-    console.log(id, status)
+  changeOrderStatus (id) {
     wx.showLoading({
       title: '加载中...',
     })
@@ -103,10 +102,16 @@ Page({
       name: "change_order",
       data: {
         orderId: id,
-        status
+        bookId: this.data.bookInfo._id
       },
       success: res => {
         console.log(res)
+        if (res.result.result == 0) {
+          return wx.showToast({
+            title: res.result.msg || '提交失败',
+            icon: 'none'
+          })
+        }
         wx.showToast({
           title: '提交成功',
         })
@@ -182,41 +187,9 @@ Page({
     if (userInfo._id != getApp().globalData.userInfo._id) {
       if (type == 2 || type == 1 || type == 3) {
         this.setData({ btnInfo: "已被别人借阅" })
+      } else {
+        this.setData({ canBorrow: true })
       }
     }
-  },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })
