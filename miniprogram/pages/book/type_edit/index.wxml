@@ -5,6 +5,7 @@
     <view class="type-title">{{ item.title }}</view>
     <view class="edit-btn">
       <button type="primary" size="mini" style="margin-right: 10rpx;" bindtap="openShow" data-title="{{ item.title }}" id="{{ item._id }}">编辑</button>
+      <button type="warn" size="mini" style="margin-right: 10rpx;" bindtap="deleteType" id="{{ item._id }}">删除</button>
     </view>
   </view>
   <view class="no-list" wx:if="{{ typeList.length === 0 }}">暂无分类</view>

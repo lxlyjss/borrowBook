@@ -1,5 +1,5 @@
 {
-  "name": "change_order_status",
+  "name": "change_order",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

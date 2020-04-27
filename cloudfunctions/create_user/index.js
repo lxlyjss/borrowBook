@@ -16,6 +16,8 @@ exports.main = async (event, context) => {
         gender: event.gender,
         phone: event.phone,
         avatar: event.avatar,
+        realname: event.realname || "",
+        phone: event.phone || ""
       }
     })
   } else {

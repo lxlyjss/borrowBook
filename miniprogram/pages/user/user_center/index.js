@@ -103,6 +103,11 @@ Page({
       url: '/pages/user/borrow_list/index',
     })
   },
+  toMyInfoPage() {
+    wx.navigateTo({
+      url: '/pages/user/info/index',
+    })
+  },
   logout () {
     this.setData({ userInfo: {} })
     wx.setStorageSync('userInfo', JSON.stringify({}))

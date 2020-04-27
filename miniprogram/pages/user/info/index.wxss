@@ -1,0 +1,60 @@
+/* miniprogram/pages/user/info/index.wxss */
+/* miniprogram/pages/book/submit_borrow/index.wxss */
+.book_info{
+  background-color: #555;
+  width: 100%;
+}
+.input_container{
+  padding: 30rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.container input{
+  border: 1rpx solid #ccc;
+  margin-bottom: 10px;
+  padding: 10rpx;
+}
+.picker{
+  padding: 18rpx 10rpx;
+  border:1rpx solid #ccc;
+  margin-bottom: 20rpx;
+  float: left;
+  width: 50%;
+}
+.line{
+  margin: 20rpx;
+}
+.time{
+  width: 30%;
+}
+.address{
+  padding: 18rpx 10rpx;
+  border:1rpx solid #ccc;
+  margin-bottom: 20rpx;
+}
+.submit_btn{
+  width: 96%;
+  margin-top: 50rpx;
+  background-color: green;
+  color: #fff;
+}
+.section .title{
+  margin-bottom: 10rpx;
+}
+
+.book_img{
+  width: 210rpx;
+  height: 290rpx;
+  margin: 20rpx;
+}
+.book_img image{
+  width: 100%;
+  height: 100%;
+}
+.info_title{
+  padding-top: 20rpx;
+  color: #fff;
+}
+.info_title view{
+  margin-bottom: 10rpx;
+}

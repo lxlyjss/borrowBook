@@ -15,6 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getTypeList()
     this.getBookList()
     if (getApp().globalData.userInfo._id) {
       this.setData({ userInfo: getApp().globalData.userInfo })

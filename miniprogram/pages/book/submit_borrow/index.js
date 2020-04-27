@@ -21,6 +21,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let userInfo = wx.getStorageSync('userInfo')
+    if (userInfo) {
+      userInfo = JSON.parse(userInfo)
+      this.setData({
+        userInfo: userInfo,
+        phone: userInfo.phone,
+        realname: userInfo.realname
+      })
+    } else {
+      wx.showToast({
+        title: '请返回登录',
+        icon: 'none'
+      })
+    }
     if (options.bookId) {
       this.data.bookId = options.bookId
       this.getBook()
@@ -37,27 +51,16 @@ Page({
     console.log(e.detail.value)
     this.setData({ realname: e.detail.value })
   },
-  onDateChange (e) {
-    console.log(e.detail.value)
-    this.setData({ date: e.detail.value })
-  },
-  onTimeChange(e) {
-    console.log(e.detail.value)
-    this.setData({ time: e.detail.value })
-  },
   onDayChange (e) {
     this.setData({ day: e.detail.value })
   },
   onAddressChange (e) {
-    console.log(e.detail.value)
     this.setData({ address: e.detail.value })
   },
   onPhoneChange (e) {
-    console.log(e.detail.value)
     this.setData({ phone: e.detail.value })
   },
   onRemarkChange(e) {
-    console.log(e.detail.value)
     this.setData({ remark: e.detail.value })
   },
   submitData() {
@@ -75,20 +78,20 @@ Page({
       })
       return
     }
-    if (!this.data.date) {
-      wx.showToast({
-        title: '请选择日期',
-        icon: 'none'
-      })
-      return
-    }
-    if (!this.data.time) {
-      wx.showToast({
-        title: '请选择时间',
-        icon: 'none'
-      })
-      return
-    }
+    // if (!this.data.date) {
+    //   wx.showToast({
+    //     title: '请选择日期',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
+    // if (!this.data.time) {
+    //   wx.showToast({
+    //     title: '请选择时间',
+    //     icon: 'none'
+    //   })
+    //   return
+    // }
     if (!this.data.day) {
       wx.showToast({
         title: '请输入借阅的天数',
@@ -106,8 +109,8 @@ Page({
     const params = {
       realname: this.data.realname,
       phone: this.data.phone,
-      date: this.data.date,
-      time: this.data.time,
+      // date: this.data.date,
+      // time: this.data.time,
       day: this.data.day,
       address: this.data.address,
       remark: this.data.remark,
@@ -122,7 +125,7 @@ Page({
         console.log(res)
         setTimeout(() => {
           wx.showToast({
-            title: '提交预约成功',
+            title: '借书成功',
           })
         }, 600)
         wx.navigateBack({})
@@ -130,7 +133,7 @@ Page({
       fail: err => {
         console.log(err)
         wx.showToast({
-          title: '提交预约失败',
+          title: '借书失败',
           icon: 'none'
         })
       }

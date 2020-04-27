@@ -103,6 +103,13 @@
 					"id": -1,
 					"name": "类型编辑",
 					"pathName": "pages/book/type_edit/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "资料",
+					"pathName": "pages/user/info/index",
 					"scene": null
 				}
 			]

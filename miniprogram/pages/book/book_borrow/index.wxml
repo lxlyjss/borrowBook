@@ -9,7 +9,8 @@
     <view>价格: {{bookInfo.bookPrice}}</view>
   </view>
   <view class='btn' wx:if="{{userInfo.openid}}">
-    <button wx:if="{{borrowList[0].status==0 || borrowList[0].status==4}}" type='primary' bindtap="confirmBorrow">我要借书</button>
+    <view class="btn-info" wx:if="{{btnInfo}}">{{btnInfo}}</view>
+    <button wx:if="{{canBorrow}}" type='primary' bindtap="confirmBorrow">我要借书</button>
     <button wx:if="{{canReturn}}" type='primary' bindtap="confirmReturn">我要还书</button>
     <!-- <button type='primary' bindtap="confirmBorrow">我要预约</button> -->
   </view>
@@ -23,11 +24,16 @@
 <view wx:if="{{!bookInfo.bookIntro}}" class='tc color999'>暂无图书简介</view>
 <view class='font18 fontBlod' style='margin-left: 30rpx;margin-top: 30rpx;'>借阅记录: </view>
 <view class='borrow_item' wx:for="{{borrowList}}" wx:key="index">
-  <view style='margin-left: 50rpx'>
-    {{item.user.name}}于{{item.dateTime}}
-    <text class='font14' wx:if="{{item.status==1}}">申请借书</text>
-    <text class='font14' wx:if="{{item.status==2}}">借走</text>
-    <text class='font14' wx:if="{{item.status==3}}">申请还书</text>
-    <text class='font14' wx:if="{{item.status==4}}">归还</text>
+  <view class="connect-btn" size="mini" bindtap="connect" data-phone="{{item.phone}}">联系TA</view>
+  <view style='margin-left: 20rpx' wx:if="{{item.status==2}}">
+    {{item.realname + "(" + item.user.name + ")"}}于{{item.dateTimeStr}}
+    <text class='font14'>借走</text>
+  </view>
+  <view style='margin-left: 20rpx' wx:if="{{item.status==4}}">
+    {{item.realname + "(" + item.user.name + ")"}}于{{item.dateTimeStr}}
+    <text class='font14'>借走，</text>
+    {{item.returnTimeStr}}
+    <text class='font14' >归还</text>
   </view>
 </view>
+<view wx:if="{{borrowCount == 0}}" class="no-list">暂无借阅记录</view>

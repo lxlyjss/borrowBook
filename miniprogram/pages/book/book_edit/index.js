@@ -11,8 +11,8 @@ Page({
     bookTypeList: []
   },
 
-  onLoad(options) {
-    this.getTypeList()
+  async onLoad(options) {
+    await this.getTypeList()
     if (options.id) {
       this.data.bookId = options.id
       this.getBook()

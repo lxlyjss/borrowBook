@@ -18,11 +18,11 @@
     <view class='book_type color999'>
       类型: <text>{{item.bookType}}</text>
     </view>
-    <view class='tc btn_box'>
+    <!-- <view class='tc btn_box'> -->
       <!-- <text class='colorLink font16' wx:if="{{item.status==0}}">可以租借</text> -->
       <!-- <text class='colorCCC font16' wx:if="{{item.status==1}}">已被借走</text> -->
-      <text class='colorLink font16'>可预约</text>
-    </view>
+      <!-- <text class='colorLink font16'>可预约</text>
+    </view> -->
   </view>
   <view class='tc' wx:if="{{booksList.length==0}}">
     <text class='color999 font16'>该类型暂无书籍</text>

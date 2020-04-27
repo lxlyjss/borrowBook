@@ -5,28 +5,13 @@ cloud.init()
 const db = cloud.database()
 // 云函数入口函数
 exports.main = async (event, context) => {
-  if (event.id) {
+  if (event.bookId) {
     let order = await db.collection('order').where({
-      _id: event.id
-    }).get()
-    let book = {}
-    let user = {}
-    if (order[0].bookId) {
-      book = await db.collection('books').where({
-        _id: order[0].bookId
-      }).get()
-    }
-    if (order[0].userId) {
-      user = await db.collection('users').where({
-        _id: order[0].userId
-      }).get()
-    }
-    order.book = book
-    order.user = user
-    return order
-  } else {
-    let order = await db.collection('order').orderBy("dateTime", "desc").get()
-    let count = await db.collection('order').count()
+      bookId: event.bookId
+    }).orderBy("dateTime", "desc").get()
+    let count = await db.collection('order').where({
+      bookId: event.bookId
+    }).count()
     let list = []
     let orderList = order.data
     async function getTest () {
@@ -46,6 +31,11 @@ exports.main = async (event, context) => {
     return {
       list,
       count: count.total
+    }
+  } else {
+    return {
+      list: [],
+      count: 0
     }
   }
 }

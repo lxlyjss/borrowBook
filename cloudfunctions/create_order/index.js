@@ -12,13 +12,13 @@ exports.main = async (event, context) => {
     data: {
       realname: event.realname,
       phone: event.phone,
-      dateTime: event.date + " " + event.time,
+      dateTime: new Date().getTime(),
       day: event.day,
-      address: event.address,
-      remark: event.remark,
+      remark: event.remark || "",
       bookId: event.bookId,
       userId: event.userId,
-      status: 1
+      returnTime: "",
+      status: 2
     }
   })
 }

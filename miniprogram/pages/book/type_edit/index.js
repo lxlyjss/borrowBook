@@ -58,6 +58,34 @@ Page({
       }
     })
   },
+  deleteType(e) {
+    wx.showModal({
+      cancelColor: 'cancelColor',
+      title: "是否删除此分类？",
+      complete: () => {
+        this.removeType(e.currentTarget.id)
+      }
+    })
+    
+  },
+  removeType(id) {
+    wx.cloud.callFunction({
+      name: "remove_type",
+      data: {
+        id: id
+      },
+      success: res => {
+        console.log(res)
+        this.getTypeList()
+      },
+      fail: err => {
+        console.log(err)
+      },
+      complete: () => {
+        wx.hideLoading()
+      }
+    })
+  },
   titleInput (e) {
     console.log(e)
     this.setData({

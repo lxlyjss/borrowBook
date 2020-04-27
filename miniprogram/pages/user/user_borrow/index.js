@@ -1,4 +1,5 @@
 // miniprogram/pages/user/borrow_list/index.js
+import { formatDate } from "../../../utils/utils"
 Page({
 
   /**
@@ -24,6 +25,10 @@ Page({
       name: "get_order",
       success: res => {
         console.log(res)
+        res.result.list.forEach(item => {
+          item.dateTimeStr = formatDate(item.dateTime, "yyyy年MM月dd日 hh:mm")
+          item.returnTimeStr = formatDate(item.returnTime, "yyyy年MM月dd日 hh:mm")
+        })
         this.setData({
           orderCount: res.result.count,
           orderList: res.result.list

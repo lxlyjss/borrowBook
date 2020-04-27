@@ -23,10 +23,32 @@
   width: 320rpx;
   margin-top: 40rpx;
 }
+.btn-info {
+  font-size: 30rpx;
+  color: #fff;
+  margin-top: 40rpx;
+}
 .borrow_item{
   color: #999;
   margin-top: 10rpx;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 30rpx;
+}
+.connect-btn {
+  flex: 0 0 100rpx;
+  color: green;
+  border: 2rpx solid green;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 10rpx;
 }
 .book_intro{
   padding: 30rpx;
+}
+.no-list {
+  text-align: center;
+  color: #ccc;
+  margin-top: 100rpx;
 }

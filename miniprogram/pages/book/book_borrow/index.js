@@ -1,5 +1,17 @@
 // miniprogram/pages/book/book_borrow/index.js
 import { formatDate } from "../../../utils/utils.js";
+
+// function formatDate(time) { 
+//   var now = new Date(time)
+//   var year=now.getFullYear();  //取得4位数的年份
+//   var month=now.getMonth()+1;  //取得日期中的月份，其中0表示1月，11表示12月
+//   var date=now.getDate();      //返回日期月份中的天数（1到31）
+//   var hour=now.getHours();     //返回日期中的小时数（0到23）
+//   var minute=now.getMinutes(); //返回日期中的分钟数（0到59）
+//   var second=now.getSeconds(); //返回日期中的秒数（0到59）
+//   return year+"-"+month+"-"+date+" "+hour+":"+minute+":"+second; 
+//   }
+
 Page({
 
   /**
@@ -10,8 +22,10 @@ Page({
     bookInfo: {},
     scanBookNo: "",
     borrowList: [],
+    borrowCount: 0,
     userInfo: {},
     canReturn: false,        //是否可以归还
+    canBorrow: false, // 是否可借书
   },
 
   /**
@@ -47,7 +61,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getBorrowList()
   },
   getBook () {
     wx.showLoading({
@@ -77,7 +91,7 @@ Page({
     })
   },
   confirmReturn () {
-    this.changeOrderStatus(this.data.borrowList[0]._id, 3)
+    this.changeOrderStatus(this.data.borrowList[0]._id, 4)
   },
   changeOrderStatus (id, status) {
     console.log(id, status)
@@ -86,7 +100,7 @@ Page({
     })
     // 调用云函数
     wx.cloud.callFunction({
-      name: "change_order_status",
+      name: "change_order",
       data: {
         orderId: id,
         status
@@ -96,6 +110,7 @@ Page({
         wx.showToast({
           title: '提交成功',
         })
+        this.getBook()
         this.getBorrowList()
       },
       fail: err => {
@@ -112,17 +127,19 @@ Page({
     })
     // 调用云函数
     wx.cloud.callFunction({
-      name: "get_order",
+      name: "get_order_by_book_id",
       data: {
         bookId: this.data.bookId
       },
       success: res => {
         console.log(res)
         res.result.list.forEach(item => {
-          item.createTime = formatDate(item.createTime, 'yyyy年MM月dd日 hh:mm:ss')
+          item.dateTimeStr = formatDate(item.dateTime, "yyyy年MM月dd日 hh:mm")
+          item.returnTimeStr = formatDate(item.returnTime, "yyyy年MM月dd日 hh:mm")
         })
-        this.setData({ borrowList: res.result.list })
-        this.setCanReturn()
+        this.setData({ borrowList: res.result.list, borrowCount: res.result.count })
+        // this.setCanReturn()
+        this.setCanBorrow()
       },
       fail: err => {
         console.log(err)
@@ -132,14 +149,40 @@ Page({
       }
     })
   },
-  setCanReturn () {
-    if (this.data.borrowList.length == 0) return
+  connect(e) {
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone
+    })
+  },
+  setCanBorrow () {
+    this.setData({ 
+      canReturn: false,
+      canBorrow: false
+    })
+    if (this.data.borrowList.length == 0) {
+      this.setData({ canBorrow: true })
+      return;
+    }
     let userInfo = this.data.borrowList[0].user
     let type = this.data.borrowList[0].status
-    if (userInfo._id == getApp().globalData.userInfo._id && type == 2) {
-      this.setData({ canReturn: true })
-    } else {
-      this.setData({ canReturn: false })
+    if (userInfo._id == getApp().globalData.userInfo._id) {
+      if (type == 4) {
+        this.setData({ canBorrow: true })
+      }
+      if (type == 3) {
+        this.setData({ btnInfo: "我已申请还书" })
+      }
+      if (type == 1) {
+        this.setData({ btnInfo: "我已申请借书" })
+      }
+      if (type == 2) {
+        this.setData({ canReturn: true })
+      }
+    }
+    if (userInfo._id != getApp().globalData.userInfo._id) {
+      if (type == 2 || type == 1 || type == 3) {
+        this.setData({ btnInfo: "已被别人借阅" })
+      }
     }
   },
   /**

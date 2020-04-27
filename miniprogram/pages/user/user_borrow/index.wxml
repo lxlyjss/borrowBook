@@ -7,11 +7,12 @@
     </view>
     <view class='info_right'>
       <view class='title'>书名: {{item.book.bookName}}</view>
-      <view class='title'>名字: {{item.realname}}</view>
-      <view class='title'>手机: {{item.phone}}</view>
-      <view class='title'>日期: {{item.date}} {{item.time}}</view>
+      <!-- <view class='title'>名字: {{item.realname}}</view>
+      <view class='title'>手机: {{item.phone}}</view> -->
+      <view class='title'>借阅日期: {{item.dateTimeStr}}</view>
+      <view class='title'>归还日期: {{item.returnTimeStr}}</view>
       <view class='title'>天数: {{item.day}}</view>
-      <view class='title'>地址: {{item.address}}</view>
+      <!-- <view class='title'>地址: {{item.address}}</view> -->
       <view class='title'>备注: {{item.remark}}</view>
       <view class='btn_group'>
         <text class='colorLink font14' wx:if="{{item.status == 1}}">已提交</text>

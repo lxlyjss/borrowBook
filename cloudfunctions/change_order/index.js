@@ -12,7 +12,8 @@ exports.main = async (event, context) => {
     _id: event.orderId
   }).update({
     data: {
-      status: event.status
+      status: event.status,
+      returnTime: new Date().getTime()
     }
   })
   return order;

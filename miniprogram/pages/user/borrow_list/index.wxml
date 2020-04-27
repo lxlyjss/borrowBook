@@ -1,6 +1,9 @@
 <!--miniprogram/pages/user/borrow_list/index.wxml-->
 <view class='container'>
-  <view class='font14 title_count'>全部记录({{orderCount}})<text class='delete_btn fr font14'>批量删除</text></view>
+  <view class='font14 title_count' >
+  全部记录({{orderCount}})
+  <!-- <text class='delete_btn fr font14'>批量删除</text> -->
+  </view>
   <view class='order_list' wx:for="{{orderList}}" wx:key="item._id">
     <view class='fl book_img'>
       <image mode='aspectFill' src='{{item.book.bookImg}}'></image>
@@ -18,7 +21,7 @@
       <view class='title'>手机: {{item.phone}}</view>
       <view class='title'>日期: {{item.dateTime}}</view>
       <view class='title'>天数: {{item.day}}</view>
-      <view class='title'>地址: {{item.address}}</view>
+      <!-- <view class='title'>地址: {{item.address}}</view> -->
       <view class='title'>备注: {{item.remark}}</view>
       <view class='btn_group'>
         <button type='primary' wx:if="{{item.status==1}}" bindtap="receiveOrder" id="{{item._id}}">确认安排</button>

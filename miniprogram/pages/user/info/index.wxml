@@ -1,0 +1,15 @@
+<!--miniprogram/pages/user/info/index.wxml-->
+<view class="container">
+  <view class='input_container'>
+    <view class='tc font18'>我的资料</view>
+  <view class='section'>
+    <view class='title'>真实姓名: </view>
+      <input placeholder='请输入姓名' value='{{realname}}' bindinput='onRealnameChange'></input>
+    </view>
+    <view class='section'>
+      <view class='title'>手机号码: </view>
+      <input type='number' placeholder='请输入手机号码' value='{{phone}}' bindinput='onPhoneChange'></input>
+    </view>
+    <button class='submit_btn' bindtap="setMyInfo">提交</button>
+  </view>
+</view>
